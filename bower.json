@@ -1,0 +1,24 @@
+{
+  "name": "fe-test",
+  "description": "FE test",
+  "main": "",
+  "authors": [
+    "Newsletter2go"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "angular-bootstrap": "~0.14.3"
+  }
+}

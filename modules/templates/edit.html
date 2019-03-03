@@ -1,0 +1,53 @@
+<div class="pagestats">
+    <div ng-include src="'modules/templates/header.html'"></div>
+
+    <md-content laout="column" flex>
+        <md-card class="editcard">
+            <!-- <label>Edit User</label> -->
+            <div ng-form name="myForm">
+                <md-input-container class="md-icon-float md-icon-right md-block" style="height: 40px;">
+                    <label>First Name</label>
+                    <input ng-model="user.firstName" required>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-icon-right md-block" style="height: 40px;">
+                    <label>Last Name</label>
+                    <input ng-model="user.lastName" required>
+                </md-input-container>
+
+                <md-input-container class="md-icon-float md-icon-right md-block" style="height: 40px;">
+                    <label>Email</label>
+                    <input ng-model="user.email" placeholder="Enter your email" type="text" name="placeName" disabled />
+                </md-input-container>
+
+                <md-input-container class="md-icon-float md-icon-right md-block" style="height: 40px;">
+                    <label>Country</label>
+                    <input ng-model="user.country" disabled>
+                </md-input-container>
+
+                <md-input-container class="md-icon-float md-icon-right md-block" style="">
+                    <!-- <label>Date Of Birth</label> -->
+                    <md-datepicker ng-model="user.dateOfBirth" md-placeholder="Enter date" disabled></md-datepicker>
+                    <!-- <input ng-model="user.dateOfBirth"> -->
+                </md-input-container>
+
+
+                <md-input-container class="md-icon-float md-icon-right md-block" style="height: 40px;">
+                    <label>Age</label>
+                    <input ng-model="user.age" disabled>
+                </md-input-container>
+
+            </div>
+
+            <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+              <md-button class="md-raised md-primary" ng-click="cancelSave()">Cancel</md-button>
+                <md-button class="md-raised md-primary" ng-click="saveUser()">Save</md-button>
+            </section>
+
+
+        </md-card>
+
+
+
+    </md-content>
+
+</div>

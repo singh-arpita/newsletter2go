@@ -1,0 +1,51 @@
+<div class="pagestats">
+    <div ng-include src="'modules/templates/header.html'"></div>
+
+    <md-content laout="column" flex>
+
+        <md-card>
+            <!-- <label>All Users</label> -->
+            <label>
+            <button  type="button" class="btn btn-info actionbtn" ng-click="delete()" ng-disabled=disableBtn()>Delete</button>
+            <button type="button" class="btn btn-info actionbtn" ng-click="selectedUserData()" ng-disabled=disableBtn()>Download</button>
+            <span class="rowsselected">Selected rows: {{totalSelected}}</span>
+
+            </label>
+
+            <md-table-container>
+                <table md-table >
+                    <thead md-head >
+                        <md-progress-linear class="tableprogress" md-mode="indeterminate"></md-progress-linear>
+                        <tr md-row>
+                            <th md-column ><span>ID<br/></span></th>
+                            <th md-column md-order-by="name"><span>First Name</span></th>
+                            <th md-column ><span>Last Name</span></th>
+                            <th md-column ><span>Email</span></th>
+                            <th md-column ><span>Country</span></th>
+                            <th md-column ><span>Age </span></th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                    <tr md-row ng-repeat="user in users | filter: filter.search | limitTo: query.limit : (query.page -1) * query.limit">
+                        <td md-cell>
+                          <label for="chkUser_{{user.id}}">
+                            <input class="checkbox" id="chkUser_{{user.id}}" type="checkbox" value="{{user.id}}" ng-model="user.selected" ng-change="updateTotal(user.selected)" />{{user.id}}
+                          </label>
+                        </td>
+                        <td md-cell>{{user.firstName}}</td>
+                        <td md-cell>{{user.lastName}}</td>
+                        <td md-cell>{{user.email}}</td>
+                        <td md-cell>{{user.country}}</td>
+                        <td md-cell>{{dob(user.dateOfBirth)}}</td>
+                        <td md-cell> <md-icon class="editorgicon" md-font-library="material-icons" ng-click="edit(user)">edit</md-icon></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="query.limit" md-limit-options="[10, 15, 20]" md-page="query.page" md-total="{{users.count}}"  md-page-select></md-table-pagination>
+        </md-card>
+
+    </md-content>
+
+</div>
